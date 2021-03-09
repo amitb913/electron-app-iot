@@ -13,7 +13,7 @@ import {
   FirebaseDatabaseProvider,
 } from '@react-firebase/database';
 import firebase from 'firebase';
-import { config } from './config';
+import {apiKeys, config } from './config';
 
 const Home = (props) => {
   const [currTime, setCurrTime] = useState('');
@@ -65,7 +65,7 @@ const Home = (props) => {
   );
   function getWeatherData() {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${cityCoords.latitude}&lon=${cityCoords.longitude}&units=imperial&appid=962bd3074ff80eaf5f861706dead66aa`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${cityCoords.latitude}&lon=${cityCoords.longitude}&units=imperial&appid=${apiKeys.openWeatherMap}`
     )
       .then((response) => response.json())
       .then((data) => {
